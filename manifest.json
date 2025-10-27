@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsApp Stego Detector",
+  "version": "1.0.0",
+  "description": "Right-click any image on web.whatsapp.com to scan for hidden or appended data.",
+  "permissions": ["contextMenus", "scripting", "activeTab"],
+  "host_permissions": ["https://web.whatsapp.com/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["scanner.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
+
